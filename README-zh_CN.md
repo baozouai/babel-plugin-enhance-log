@@ -80,8 +80,9 @@ npm i babel-plugin-enhance-log -D
 module.exports = {
 
   plugins: [
-    // 如果是生产环境，添加这一行
-    ['enhance-log', { reflect: true or false }]
+    ['enhance-log', {  
+      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀' // default 
+    }]
   ],
 }
 ```

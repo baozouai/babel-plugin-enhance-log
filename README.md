@@ -77,8 +77,9 @@ npm i babel-plugin-enhance-log -D
 module.exports = {
 
   plugins: [
-    // if isProduction add this
-    ['enhance-log', { reflect: true or false }]
+    ['enhance-log', {  
+      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀' // default 
+    }]
   ],
 }
 ```
