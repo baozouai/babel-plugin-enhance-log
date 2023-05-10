@@ -1,30 +1,35 @@
 {
-  "name": "@baozouai/template",
-  "version": "0.2.0",
+  "name": "babel-plugin-enhance-log",
+  "version": "0.0.1",
   "packageManager": "pnpm@8.3.1",
   "description": "transform enum to object for better tree shaking",
   "author": "baozouai <baozouai@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/baozouai/template",
+  "homepage": "https://github.com/baozouai/babel-plugin-enhance-log",
   "repository": {
     "type": "git",
-    "url": "https://github.com/baozouai/template.git"
+    "url": "https://github.com/baozouai/babel-plugin-enhance-log.git"
   },
   "bugs": {
-    "url": "https://github.com/baozouai/template/issues"
+    "url": "https://github.com/baozouai/babel-plugin-enhance-log/issues"
   },
   "keywords": [
+    "babel",
+    "plugin",
+    "enum",
     "typescript",
-    "template"
+    "node",
+    "tree shaking",
+    "enum to oeject"
   ],
-  "main": "dist/template.js",
-  "types": "dist/template.d.ts",
+  "main": "dist/babel-plugin-enhance-log.js",
+  "types": "dist/babel-plugin-enhance-log.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "eslint --cache --fix",
+    "lint": "eslint . --fix",
     "build": "tsc",
     "test": "vitest",
     "tag": "bumpp",
@@ -32,10 +37,21 @@
     "release": "npm publish",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "@babel/generator": "^7.21.4",
+    "@babel/helper-plugin-utils": "^7.20.2",
+    "@babel/plugin-syntax-typescript": "^7.21.4"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.36.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/types": "^7.21.4",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@types/babel__core": "^7.20.0",
+    "@types/babel__generator": "^7.6.4",
+    "@types/babel__helper-plugin-utils": "^7.10.0",
     "@types/node": "^18.15.13",
     "@vitest/coverage-c8": "^0.30.1",
     "bumpp": "^9.1.0",
@@ -67,6 +83,6 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "src/**/*.ts": "eslint --fix"
   }
 }
