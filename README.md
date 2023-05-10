@@ -21,7 +21,8 @@
 
 [test-badge]: https://github.com/baozouai/babel-plugin-enhance-log/actions/workflows/ci.yml/badge.svg
 
-[codecov-badge]: https://codecov.io/github/baozouai/babel-plugin-enhance-log/branch/master/graph/badge.svg
+[codecov-badge]: https://codecov.io/github/baozouai/plugin-babel-plugin-enhance-log/branch/master/graph/badge.svg
+
 
 </div>
 
