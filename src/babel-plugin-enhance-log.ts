@@ -9,8 +9,14 @@ export interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
-  /** add \n for every arg, default false */
-  lineFeed?: boolean
+  /**
+   * every arg split by
+   * @example
+   * \n
+   * ;
+   * ,
+   */
+  splitBy?: string
   /** need endLine, default false */
   endLine?: boolean
 }
@@ -25,11 +31,10 @@ function generateStrNode(str: string): StringLiteral & { skip: boolean } {
   // @ts-ignore
   return node
 }
-const LineFeedNode = generateStrNode('\n')
 
-export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = false, endLine = false }) => {
+export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = '', endLine = false }) => {
   const { types: t } = babel
-
+  const splitNode = generateStrNode(splitBy)
   return {
     name: 'enhance-log',
     visitor: {
@@ -54,8 +59,7 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = f
               continue
             if (!t.isLiteral(argument)) {
               if (t.isIdentifier(argument) && argument.name === 'undefined') {
-                if (lineFeed)
-                  nodeArguments.splice(i + 1, 0, LineFeedNode)
+                nodeArguments.splice(i + 1, 0, splitNode)
                 continue
               }
               // @ts-ignore
@@ -63,14 +67,15 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = f
               const node = generateStrNode(`${generater(argument).code} =`)
 
               nodeArguments.splice(i, 0, node)
-              if (lineFeed)
-                nodeArguments.splice(i + 2, 0, LineFeedNode)
+              nodeArguments.splice(i + 2, 0, splitNode)
             }
             else {
-              if (lineFeed)
-                nodeArguments.splice(i + 1, 0, LineFeedNode)
+              nodeArguments.splice(i + 1, 0, splitNode)
             }
           }
+          // the last needn't split
+          if (nodeArguments[nodeArguments.length - 1] === splitNode)
+            nodeArguments.pop()
           const { loc } = path.node
           if (loc) {
             const startLine = loc.start.line

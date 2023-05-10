@@ -62,21 +62,42 @@ it(`Transforms log with lineFeed`, () => {
   expect(code).toMatchSnapshot()
 })
 
-it(`Transforms log  with endLine`, () => {
+it(`Transforms log  with splitBy ;`, () => {
   const { code } = transformSync(multiTypeArg, {
     plugins: [[plugin, {
-      endLine: true,
+      splitBy: ';',
     }]]
   })!
   console.log(code);
   expect(code).toMatchSnapshot()
 })
 
-it(`Transforms log  with endLine, lineFeed`, () => {
+it(`Transforms log  with splitBy \n`, () => {
+  const { code } = transformSync(multiTypeArg, {
+    plugins: [[plugin, {
+      splitBy: '\n',
+    }]]
+  })!
+  console.log(code);
+  expect(code).toMatchSnapshot()
+})
+
+it(`Transforms log  with endLine, splitBy \\n`, () => {
   const { code } = transformSync(multiTypeArg, {
     plugins: [[plugin, {
       endLine: true,
-      lineFeed: true,
+      splitBy: '\n',
+    }]]
+  })!
+  console.log(code);
+  expect(code).toMatchSnapshot()
+})
+
+it(`Transforms log  with endLine, splitBy 🐖`, () => {
+  const { code } = transformSync(multiTypeArg, {
+    plugins: [[plugin, {
+      endLine: true,
+      splitBy: '🐖',
     }]]
   })!
   console.log(code);

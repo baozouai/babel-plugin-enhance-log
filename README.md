@@ -42,8 +42,8 @@ interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
-  /** add \n for every arg, default false */
-  lineFeed?: boolean
+  /** the delimiter for each parameter is an empty string by default, you can also use a newline \n, a semicolon';' a comma',' or even a pig '🐖' */
+  splitBy?: boolean
   /** 
    * need endLine, default false
    * @example
@@ -89,7 +89,7 @@ module.exports = {
     /** @type {import('babel-plugin-enhance-log').Options} */
     {  
       preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
-      lineFeed: false, // default
+      splitBy: '', // default
       endLine: false
     }]
   ],

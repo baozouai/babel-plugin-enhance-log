@@ -42,8 +42,8 @@ interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
-  /** 每个参数是否换行，默认false */
-  lineFeed?: boolean
+  /** 每个参数分隔符，默认空字符串，你也可以使用换行符\n，分号；逗号，甚至猪猪🐖都行~ */
+  splitBy?: boolean
   /** 
    * 是否需要endLine
    * @example
@@ -92,7 +92,7 @@ module.exports = {
     /** @type {import('babel-plugin-enhance-log').Options} */
     {  
       preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
-      lineFeed: false, // default
+      splitBy: '', // default
       endLine: false // default
     }]
   ],
