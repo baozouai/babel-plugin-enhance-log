@@ -55,7 +55,7 @@ console.log(a, b, 'c')
 after add plugin：
 ```ts
 const a = 1, b = 2
-console.log('line of 1: ', 'a = ', a, 'b = ', b, 'c')
+console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀: ', 'a = ', a, 'b = ', b, 'c')
 ```
 
 
