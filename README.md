@@ -42,6 +42,8 @@ interface BabelPluginEnhanceLogOptions {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
+  /** add \n for every arg, default true */
+  lineFeed?: boolean
 }
 ```
 eg:

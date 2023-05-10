@@ -47,3 +47,23 @@ it(`Transforms log width preTip ${heartPreTip}`, () => {
   })!
   expect(code).toMatchSnapshot()
 })
+
+it(`Transforms log no lineFeed`, () => {
+  const { code } = transformSync(`
+  const a = 1
+  const b = 2
+  const e = {
+    w: {
+      c: '123'
+    }
+  }
+  console.log('1', false, 2, null, undefined, a, e.w.c, b, e)
+  `, {
+    plugins: [[plugin, {
+      preTip: heartPreTip,
+      lineFeed: false,
+    }]]
+  })!
+  console.log(code);
+  expect(code).toMatchSnapshot()
+})

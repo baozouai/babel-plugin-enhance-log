@@ -37,11 +37,13 @@
 ```ts
 interface BabelPluginEnhanceLogOptions {
   /**
-   * tip of start argument default 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+   * 打印的前缀提示，这样方便快速找到log 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
    * @example
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
+  /** 每个参数是否换行，默认true */
+  lineFeed?: boolean
 }
 ```
 

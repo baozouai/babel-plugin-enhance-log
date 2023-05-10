@@ -9,6 +9,8 @@ interface BabelPluginEnhanceLogOptions {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
+  /** add \n for every arg, default true */
+  lineFeed?: boolean
 }
 
 const DEFAULT_PRE_TIP = '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀'
@@ -23,7 +25,7 @@ function generateStrNode(str: string): StringLiteral & { skip: boolean } {
 }
 const LineFeedNode = generateStrNode('\n')
 
-export default declare<BabelPluginEnhanceLogOptions>((babel, { preTip = DEFAULT_PRE_TIP }) => {
+export default declare<BabelPluginEnhanceLogOptions>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = true }) => {
   const { types: t } = babel
 
   return {
@@ -50,7 +52,8 @@ export default declare<BabelPluginEnhanceLogOptions>((babel, { preTip = DEFAULT_
               continue
             if (!t.isLiteral(argument)) {
               if (t.isIdentifier(argument) && argument.name === 'undefined') {
-                nodeArguments.splice(i + 1, 0, LineFeedNode)
+                if (lineFeed)
+                  nodeArguments.splice(i + 1, 0, LineFeedNode)
                 continue
               }
               // @ts-ignore
@@ -58,10 +61,12 @@ export default declare<BabelPluginEnhanceLogOptions>((babel, { preTip = DEFAULT_
               const node = generateStrNode(`${generater(argument).code} =`)
 
               nodeArguments.splice(i, 0, node)
-              nodeArguments.splice(i + 2, 0, LineFeedNode)
+              if (lineFeed)
+                nodeArguments.splice(i + 2, 0, LineFeedNode)
             }
             else {
-              nodeArguments.splice(i + 1, 0, LineFeedNode)
+              if (lineFeed)
+                nodeArguments.splice(i + 1, 0, LineFeedNode)
             }
           }
           const { loc } = path.node
