@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+.vscode
+npm-debug.log
+yarn-error.log
+.stylelintcache
+.eslintcache
+node_modules
+dist
+coverage/
