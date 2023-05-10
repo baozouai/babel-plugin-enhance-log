@@ -42,8 +42,14 @@ interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
-  /** add \n for every arg, default true */
+  /** add \n for every arg, default false */
   lineFeed?: boolean
+  /** 
+   * need endLine, default false
+   * @example
+   * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ..., 'line of 10 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀')
+   *  */
+  endLine?: boolean
 }
 ```
 eg:
@@ -83,7 +89,8 @@ module.exports = {
     /** @type {import('babel-plugin-enhance-log').Options} */
     {  
       preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
-      lineFeed: true // default
+      lineFeed: false, // default
+      endLine: false
     }]
   ],
 }

@@ -42,8 +42,14 @@ interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
-  /** 每个参数是否换行，默认true */
+  /** 每个参数是否换行，默认false */
   lineFeed?: boolean
+  /** 
+   * 是否需要endLine
+   * @example
+   * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ..., 'line of 10 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀')
+   *  */
+  endLine?: boolean
 }
 ```
 
@@ -86,7 +92,8 @@ module.exports = {
     /** @type {import('babel-plugin-enhance-log').Options} */
     {  
       preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
-      lineFeed: true // default
+      lineFeed: false, // default
+      endLine: false // default
     }]
   ],
 }

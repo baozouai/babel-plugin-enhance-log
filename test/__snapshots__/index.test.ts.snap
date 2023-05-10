@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Transforms log no lineFeed 1`] = `
+exports[`Transforms log  with endLine 1`] = `
 "const a = 1;
 const b = 2;
 const e = {
@@ -8,7 +8,35 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16:\\\\n\\", '1', false, 2, null, undefined, \\"a =\\", a, \\"e.w.c =\\", e.w.c, \\"b =\\", b, \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', false, 2, null, undefined, \\"a =\\", a, \\"e.w.c =\\", e.w.c, \\"b =\\", b, \\"e =\\", e, \\"\\\\nline of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
+`;
+
+exports[`Transforms log  with endLine, lineFeed 1`] = `
+"const a = 1;
+const b = 2;
+const e = {
+  w: {
+    c: '123'
+  }
+};
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e, \\"\\\\n\\", \\"\\\\nline of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
+`;
+
+exports[`Transforms log 1`] = `
+"const a = 1;
+const b = 2;
+const e = {
+  w: {
+    c: '123'
+  }
+};
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', false, 2, null, undefined, \\"a =\\", a, \\"e.w.c =\\", e.w.c, \\"b =\\", b) /*@@babel-plugin-enhance-logSkip*/;"
+`;
+
+exports[`Transforms log default 1`] = `
+"const a = 1,
+  b = true;
+console.log(\\"line of 3 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", \\"a =\\", a, \\"b =\\", b) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log width preTip 🐖🐖🐖🐖🐖🐖🐖🐖🐖 1`] = `
@@ -19,16 +47,10 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16:\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e, \\"\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16:\\\\n\\", '1', false, 2, null, undefined, \\"a =\\", a, \\"e.w.c =\\", e.w.c, \\"b =\\", b, \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
-exports[`Transforms log1 1`] = `
-"const a = 1,
-  b = true;
-console.log(\\"line of 3 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
-`;
-
-exports[`Transforms log2 1`] = `
+exports[`Transforms log with lineFeed 1`] = `
 "const a = 1;
 const b = 2;
 const e = {
@@ -36,5 +58,5 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e, \\"\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
 `;

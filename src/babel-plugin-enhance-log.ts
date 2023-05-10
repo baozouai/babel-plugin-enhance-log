@@ -9,8 +9,10 @@ export interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
   preTip?: string
-  /** add \n for every arg, default true */
+  /** add \n for every arg, default false */
   lineFeed?: boolean
+  /** need endLine, default false */
+  endLine?: boolean
 }
 
 const DEFAULT_PRE_TIP = '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀'
@@ -25,7 +27,7 @@ function generateStrNode(str: string): StringLiteral & { skip: boolean } {
 }
 const LineFeedNode = generateStrNode('\n')
 
-export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = true }) => {
+export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = false, endLine = false }) => {
   const { types: t } = babel
 
   return {
@@ -71,9 +73,14 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = t
           }
           const { loc } = path.node
           if (loc) {
-            const line = loc.start.line
-            const lineTipNode = t.stringLiteral(`line of ${line} ${preTip}:\n`)
-            nodeArguments.unshift(lineTipNode)
+            const startLine = loc.start.line
+            const startLineTipNode = t.stringLiteral(`line of ${startLine} ${preTip}:\n`)
+            nodeArguments.unshift(startLineTipNode)
+            if (endLine) {
+              const endLine = loc.end.line
+              const endLineTipNode = t.stringLiteral(`\nline of ${endLine} ${preTip}:\n`)
+              nodeArguments.push(endLineTipNode)
+            }
           }
         }
       },

@@ -3,19 +3,19 @@ import type { TransformOptions } from '@babel/core'
 import { transformSync } from '@babel/core'
 import plugin from '../src/babel-plugin-enhance-log'
 
-const defaultOptions: TransformOptions = {
-  plugins: [plugin],
-}
 
-it('Transforms log1', () => {
+
+it('Transforms log default', () => {
   const { code } = transformSync(`
   const a = 1, b = true
   console.log(a, b)
-  `, defaultOptions)!
+  `, {
+    plugins: [plugin],
+  })!
   expect(code).toMatchSnapshot()
 })
 
-it('Transforms log2', () => {
+it('Transforms log', () => {
   const { code } = transformSync(`
   const a = 1
   const b = 2
@@ -25,22 +25,26 @@ it('Transforms log2', () => {
     }
   }
   console.log('1', false, 2, null, undefined, a, e.w.c, b)
-  `, defaultOptions)!
+  `, {
+    plugins: [plugin],
+  })!
   expect(code).toMatchSnapshot()
 })
 
+
 const heartPreTip = '🐖🐖🐖🐖🐖🐖🐖🐖🐖'
-it(`Transforms log width preTip ${heartPreTip}`, () => {
-  const { code } = transformSync(`
-  const a = 1
-  const b = 2
-  const e = {
-    w: {
-      c: '123'
-    }
+const multiTypeArg = `
+const a = 1
+const b = 2
+const e = {
+  w: {
+    c: '123'
   }
-  console.log('1', false, 2, null, undefined, a, e.w.c, b, e)
-  `, {
+}
+console.log('1', false, 2, null, undefined, a, e.w.c, b, e)
+`
+it(`Transforms log width preTip ${heartPreTip}`, () => {
+  const { code } = transformSync(multiTypeArg, {
     plugins: [[plugin, {
       preTip: heartPreTip
     }]]
@@ -48,20 +52,31 @@ it(`Transforms log width preTip ${heartPreTip}`, () => {
   expect(code).toMatchSnapshot()
 })
 
-it(`Transforms log no lineFeed`, () => {
-  const { code } = transformSync(`
-  const a = 1
-  const b = 2
-  const e = {
-    w: {
-      c: '123'
-    }
-  }
-  console.log('1', false, 2, null, undefined, a, e.w.c, b, e)
-  `, {
+it(`Transforms log with lineFeed`, () => {
+  const { code } = transformSync(multiTypeArg, {
     plugins: [[plugin, {
-      preTip: heartPreTip,
-      lineFeed: false,
+      lineFeed: true,
+    }]]
+  })!
+  console.log(code);
+  expect(code).toMatchSnapshot()
+})
+
+it(`Transforms log  with endLine`, () => {
+  const { code } = transformSync(multiTypeArg, {
+    plugins: [[plugin, {
+      endLine: true,
+    }]]
+  })!
+  console.log(code);
+  expect(code).toMatchSnapshot()
+})
+
+it(`Transforms log  with endLine, lineFeed`, () => {
+  const { code } = transformSync(multiTypeArg, {
+    plugins: [[plugin, {
+      endLine: true,
+      lineFeed: true,
     }]]
   })!
   console.log(code);
