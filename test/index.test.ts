@@ -9,8 +9,7 @@ const defaultOptions: TransformOptions = {
 
 it('Transforms log1', () => {
   const { code } = transformSync(`
-  const a = 1
-  b = true
+  const a = 1, b = true
   console.log(a, b)
   `, defaultOptions)!
   expect(code).toMatchSnapshot()
@@ -30,7 +29,7 @@ it('Transforms log2', () => {
   expect(code).toMatchSnapshot()
 })
 
-const heartPreTip = '❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️'
+const heartPreTip = '🐖🐖🐖🐖🐖🐖🐖🐖🐖'
 it(`Transforms log width preTip ${heartPreTip}`, () => {
   const { code } = transformSync(`
   const a = 1
@@ -40,7 +39,7 @@ it(`Transforms log width preTip ${heartPreTip}`, () => {
       c: '123'
     }
   }
-  console.log('1', false, 2, null, undefined, a, e.w.c, b)
+  console.log('1', false, 2, null, undefined, a, e.w.c, b, e)
   `, {
     plugins: [[plugin, {
       preTip: heartPreTip
