@@ -48,14 +48,14 @@ eg:
 
 before add plugin：
 ```ts
-const a = 1, b = 2
-console.log(a, b, 'c')
+const a = 1, b = 2 // line of 1
+console.log(a, b, 'c') // line of 2
 ```
 
 after add plugin：
 ```ts
 const a = 1, b = 2
-console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀: ', 'a = ', a, 'b = ', b, 'c')
+console.log('line of 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀: ', 'a = ', a, 'b = ', b, 'c')
 ```
 
 
