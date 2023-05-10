@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Transforms log1 1`] = `
+"const a = 1;
+b = true;
+console.log(\\"line of 4 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80: \\", \\"a = \\", a, \\"b = \\", b);"
+`;
+
+exports[`Transforms log2 1`] = `
+"const a = 1;
+const b = 2;
+const e = {
+  w: {
+    c: '123'
+  }
+};
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80: \\", '1', false, 2, null, \\"undefined = \\", undefined, \\"a = \\", a, \\"e.w.c = \\", e.w.c, \\"b = \\", b);"
+`;

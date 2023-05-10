@@ -30,7 +30,7 @@ export default declare<BabelPluginEnhanceLogOptions>((babel, { preTip = DEFAULT_
             if (!t.isLiteral(argument)) {
               // @ts-ignore
               argument.skip = true
-              nodeArguments.splice(i, 0, t.stringLiteral(`${generater(argument).code}=`))
+              nodeArguments.splice(i, 0, t.stringLiteral(`${generater(argument).code} = `))
             }
           }
           const { loc } = path.node

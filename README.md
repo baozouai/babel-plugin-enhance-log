@@ -34,26 +34,13 @@ A babel Plugin to add log line, add log argument name
 ## Options
 
 ```ts
-  interface BabelPluginEnumToObjectOptions {
+interface BabelPluginEnhanceLogOptions {
   /**
-   * need reflect ? default true
+   * tip of start argument default 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
    * @example
-   * enum Status {
-   *  PAID
-   * }
-   * reflect: true
-   * =>
-   * const Status = {
-   * PAID: 0,
-   * 0: 'PAID',
-   * }
-   * reflect: false
-   * =>
-   * const Status = {
-   * PAID: 0,
-   * }
+   * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ...)
    */
-  reflect?: boolean
+  preTip?: string
 }
 ```
 eg:
