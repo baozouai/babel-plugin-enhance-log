@@ -35,7 +35,7 @@
 ## 参数
 
 ```ts
-interface BabelPluginEnhanceLogOptions {
+interface Options {
   /**
    * 打印的前缀提示，这样方便快速找到log 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
    * @example
@@ -82,8 +82,11 @@ npm i babel-plugin-enhance-log -D
 module.exports = {
 
   plugins: [
-    ['enhance-log', {  
-      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀' // default 
+    ['enhance-log', 
+    /** @type {import('babel-plugin-enhance-log').Options} */
+    {  
+      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
+      lineFeed: true // default
     }]
   ],
 }

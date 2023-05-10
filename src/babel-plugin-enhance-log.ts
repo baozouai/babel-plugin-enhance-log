@@ -2,7 +2,7 @@ import { declare } from '@babel/helper-plugin-utils'
 import generater from '@babel/generator'
 import type { StringLiteral } from '@babel/types'
 import { stringLiteral } from '@babel/types'
-interface BabelPluginEnhanceLogOptions {
+export interface Options {
   /**
    * tip of start argument default 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
    * @example
@@ -25,7 +25,7 @@ function generateStrNode(str: string): StringLiteral & { skip: boolean } {
 }
 const LineFeedNode = generateStrNode('\n')
 
-export default declare<BabelPluginEnhanceLogOptions>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = true }) => {
+export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, lineFeed = true }) => {
   const { types: t } = babel
 
   return {

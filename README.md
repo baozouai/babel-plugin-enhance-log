@@ -35,7 +35,7 @@ A babel Plugin to add log line, add log argument name
 ## Options
 
 ```ts
-interface BabelPluginEnhanceLogOptions {
+interface Options {
   /**
    * tip of start argument default 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
    * @example
@@ -79,8 +79,11 @@ npm i babel-plugin-enhance-log -D
 module.exports = {
 
   plugins: [
-    ['enhance-log', {  
-      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀' // default 
+    ['enhance-log', 
+    /** @type {import('babel-plugin-enhance-log').Options} */
+    {  
+      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
+      lineFeed: true // default
     }]
   ],
 }
