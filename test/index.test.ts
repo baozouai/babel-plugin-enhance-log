@@ -29,3 +29,22 @@ it('Transforms log2', () => {
   `, defaultOptions)!
   expect(code).toMatchSnapshot()
 })
+
+const heartPreTip = '❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️'
+it(`Transforms log width preTip ${heartPreTip}`, () => {
+  const { code } = transformSync(`
+  const a = 1
+  const b = 2
+  const e = {
+    w: {
+      c: '123'
+    }
+  }
+  console.log('1', false, 2, null, undefined, a, e.w.c, b)
+  `, {
+    plugins: [[plugin, {
+      preTip: heartPreTip
+    }]]
+  })!
+  expect(code).toMatchSnapshot()
+})
