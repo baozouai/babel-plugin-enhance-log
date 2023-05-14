@@ -16,11 +16,11 @@
   "keywords": [
     "babel",
     "plugin",
-    "enum",
-    "typescript",
-    "node",
-    "tree shaking",
-    "enum to oeject"
+    "enhance log",
+    "line",
+    "babel-plugin",
+    "add log argument name",
+    "add separator for every argument"
   ],
   "main": "dist/babel-plugin-enhance-log.js",
   "types": "dist/babel-plugin-enhance-log.d.ts",
