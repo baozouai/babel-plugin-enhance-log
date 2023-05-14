@@ -4,7 +4,7 @@
 </p>
 
 <div align="center">
-
+  A babel Plugin to add log line, add log argument name and separator
 
  [![NPM version][npm-image]][npm-url] ![NPM downloads][download-image]
 
@@ -27,12 +27,19 @@
 </div>
 
 English | [中文](./README-zh_CN.md)
-## About
 
-A babel Plugin to add log line, add log argument name
+## 📦  Install
+
+```sh
+pnpm add babel-plugin-enhance-log -D
+# or
+yarn add babel-plugin-enhance-log -D
+# or
+npm i babel-plugin-enhance-log -D
+```
 
 
-## Options
+## ⚙️ Options
 
 ```ts
 interface Options {
@@ -52,31 +59,6 @@ interface Options {
   endLine?: boolean
 }
 ```
-eg:
-
-before add plugin：
-```ts
-const a = 1, b = 2 // line of 1
-console.log(a, b, 'c') // line of 2
-```
-
-after add plugin：
-```ts
-const a = 1, b = 2
-console.log('line of 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀: ', 'a = ', a, 'b = ', b, 'c')
-```
-
-
-## 📦  Install
-
-```sh
-pnpm add babel-plugin-enhance-log -D
-# or
-yarn add babel-plugin-enhance-log -D
-# or
-npm i babel-plugin-enhance-log -D
-```
-
 ##  🔨 Usage
 
 ```js
@@ -95,6 +77,34 @@ module.exports = {
   ],
 }
 ```
+![](./assets/option_example.png)
+
+## Example
+
+For example, if you don't like small 🚀, but you like piggy 🐖, you can configure preTip as 🐖🐖🐖🐖🐖🐖🐖🐖🐖🐖:
+
+![img](./assets/pig_pretip.png)
+
+For example, in the case of many parameters, you want log to wrap each parameter, then you can configure splitBy as `\n`:
+
+![img](./assets/linefeed.png)
+
+Or the delimiter is `;`:
+
+![img](./assets/semicolon_delimiter.png)
+
+Of course, you can also specify it at will, such as using a dog head 🐶 to separate:
+
+![img](./assets/dog_delimiter.png)
+
+For another example, if there is a log that spans multiple lines, you want the number of lines at the beginning and end of the log, with the log entity in the middle, then you can set endLine to true:
+
+![img](./assets/log_multi_line.png)
+
+![img](./assets/log_multi_line_res.png)
+
+> We can see that the number of lines at the beginning is 13, and the number of lines at the end is 44, which is consistent with the source code
+
 ## 📄 License
 
 babel-plugin-enhance-log is [MIT licensed](./LICENSE).

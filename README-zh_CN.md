@@ -4,6 +4,7 @@
 </p>
 
 <div align="center">
+  一个用来为console.log添加代码行数，log参数名以及添加分隔符的插件
 
 [![NPM version][npm-image]][npm-url] ![NPM downloads][download-image]
 
@@ -25,14 +26,18 @@
 
 </div>
 
-
 中文 | [英文](./README.md)
 
-## 关于
+## 📦  安装
 
-一个用来为console.log添加代码行数，log参数名的插件
-
-## 参数
+```sh
+pnpm add babel-plugin-enhance-log -D
+# or
+yarn add babel-plugin-enhance-log -D
+# or
+npm i babel-plugin-enhance-log -D
+```
+## ⚙️ 参数
 
 ```ts
 interface Options {
@@ -53,51 +58,53 @@ interface Options {
 }
 ```
 
-eg:
-
-没加插件前：
-```ts
-const a = 1, b = 2 // line of 1
-console.log(a, b, 'c') // line of 2
-```
-
-加插件后：
-```ts
-const a = 1, b = 2
-console.log('line of 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀: ', 'a = ', a, 'b = ', b, 'c')
-```
-
-
-## 📦  安装
-
-```sh
-pnpm add babel-plugin-enhance-log -D
-# or
-yarn add babel-plugin-enhance-log -D
-# or
-npm i babel-plugin-enhance-log -D
-```
-
  ## 🔨 使用
 
 ```js
-
-
 // babel.config.js
-
+/** @type {import('babel-plugin-enhance-log').Options} */
+const enhanceOption =  {  
+      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
+      splitBy: '', // default
+      endLine: false // default
+}
 module.exports = {
 
   plugins: [
     ['enhance-log', 
-    /** @type {import('babel-plugin-enhance-log').Options} */
-    {  
-      preTip: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', // default 
-      splitBy: '', // default
-      endLine: false // default
-    }]
+    enhanceOption
+   ]
   ],
 }
 ```
-## 📄 License
+![](./assets/option_example.png)
 
-babel-plugin-enhance-log is [MIT licensed](./LICENSE).
+## 例子
+
+比如说，你不喜欢小 🚀，你喜欢猪猪 🐖，那可以配置 preTip 为 🐖🐖🐖🐖🐖🐖🐖🐖🐖🐖：
+
+![img](./assets/pig_pretip.png)
+
+比如说，在参数较多的情况下，你希望 log 每个参数都换行，那可以配置 splitBy 为 `\n`：
+
+![img](./assets/linefeed.png)
+
+或者分隔符是`;`:
+
+![img](./assets/semicolon_delimiter.png)
+
+当然，你也可以随意指定，比如用个狗头🐶来分隔：
+
+![img](./assets/dog_delimiter.png)
+
+又比如说，有个 log 跨了多行，你希望 log 开始和结束的行数，中间是 log 实体，那可以将 endLine 设置为 true：
+
+![img](./assets/log_multi_line.png)
+
+![img](./assets/log_multi_line_res.png)
+
+> 我们可以看到开始的行数是13，结束的行数是44，跟源码一致 
+
+## 📄 协议
+
+babel-plugin-enhance-log 遵循 [MIT 协议](./LICENSE).
