@@ -79,7 +79,7 @@ module.exports = {
 ```
 ![](./assets/option_example.png)
 
-## Example
+## 👇 Example
 
 For example, if you don't like small 🚀, but you like piggy 🐖, you can configure preTip as 🐖🐖🐖🐖🐖🐖🐖🐖🐖🐖:
 

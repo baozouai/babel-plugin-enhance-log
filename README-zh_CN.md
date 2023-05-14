@@ -79,7 +79,7 @@ module.exports = {
 ```
 ![](./assets/option_example.png)
 
-## 例子
+## 👇 例子
 
 比如说，你不喜欢小 🚀，你喜欢猪猪 🐖，那可以配置 preTip 为 🐖🐖🐖🐖🐖🐖🐖🐖🐖🐖：
 
