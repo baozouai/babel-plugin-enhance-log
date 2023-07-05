@@ -37,6 +37,13 @@ jobs:
         run: nci
 
       - name: Release
-        run: nr release
+        run: |
+          if [[ ${{ github.ref }} == *refs/tags/*-beta* ]]; then
+            npm publish --tag beta
+          elif [[ ${{ github.ref }} == *refs/tags/*-alpha* ]]; then
+            npm publish --tag alpha
+          else
+            npm publish
+          fi
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
