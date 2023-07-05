@@ -23,7 +23,7 @@
     "add log argument name",
     "add separator for every argument"
   ],
-  "main": "dist/babel-plugin-enhance-log.cjs",
+  "main": "dist/babel-plugin-enhance-log.js",
   "module": "dist/babel-plugin-enhance-log.mjs",
   "types": "dist/babel-plugin-enhance-log.d.ts",
   "files": [

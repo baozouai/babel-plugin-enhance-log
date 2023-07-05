@@ -7,11 +7,8 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [['../../dist/babel-plugin-enhance-log', {
-          splitBy: '\n',
-          enableFileName: {
-            enableDir: false,
-          },
+        plugins: [['enhance-log', {
+          splitby: '\n',
         }]],
       },
     }),
