@@ -4,7 +4,7 @@
 </p>
 
 <div align="center">
-  A babel Plugin to add log line, add log argument name and separator
+  A babel Plugin to add log line, log filename, add log argument name and separator
 
  [![NPM version][npm-image]][npm-url] ![NPM downloads][download-image]
 
@@ -57,6 +57,23 @@ interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ..., 'line of 10 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀')
    *  */
   endLine?: boolean
+  /**
+   * log file name
+   * If your file name is too long,
+   * and you don;t want to log the directory of  the file path, 
+   * such as src/pages/xxxyyy/a.tsx, 
+   * then you can configure enableDir to false, and only print a.tsx
+   * @default true
+   */
+  enableFileName?: boolean | {
+    enableDir?: boolean
+  }
+  /** 
+   * You can specify the project root directory address, which
+   * will be used to process file name generation 
+   * @default process.cwd()
+   * */
+  root?: boolean
 }
 ```
 ##  🔨 Usage
@@ -104,6 +121,17 @@ For another example, if there is a log that spans multiple lines, you want the n
 ![img](./assets/log_multi_line_res.png)
 
 > We can see that the number of lines at the beginning is 13, and the number of lines at the end is 44, which is consistent with the source code
+
+For example, if you want to know the file name where the log is located, you can configure enableFileName to be true (of course the default is true):
+
+![img](./assets/filename.png)
+
+If the file path is too long:
+![img](./assets/deep_file.png)
+
+
+and you only want to print the file name without the directory prefix, you can configure `enableFileName: { enableDir: false }`:
+![img](./assets/only_file_name.png)
 
 ## 📄 License
 

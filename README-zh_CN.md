@@ -4,7 +4,7 @@
 </p>
 
 <div align="center">
-  一个用来为console.log添加代码行数，log参数名以及添加分隔符的插件
+  一个用来为console.log添加代码行数，log所在文件名，log参数名以及添加分隔符的插件
 
 [![NPM version][npm-image]][npm-url] ![NPM downloads][download-image]
 
@@ -55,6 +55,17 @@ interface Options {
    * console.log('line of 1 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', ..., 'line of 10 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀')
    *  */
   endLine?: boolean
+  /**
+   * 打印文件名
+   * 如果你文件名太长，希望不显示文件path的目录，比如src/pages/xxx/yyy/a.tsx, 那么可以配置enableDir为false，则只打印a.tsx
+   * 
+   * @default true
+   */
+  enableFileName?: boolean | {
+    enableDir?: boolean
+  }
+  /** 可以指定项目根目录地址，默认是process.cwd()，会用于处理文件名生成 */
+  root?: boolean
 }
 ```
 
@@ -104,6 +115,17 @@ module.exports = {
 ![img](./assets/log_multi_line_res.png)
 
 > 我们可以看到开始的行数是13，结束的行数是44，跟源码一致 
+
+又比如说，你希望知道log所在的文件名，那么可以配置enableFileName为true（当然默认就是true）：
+
+![img](./assets/filename.png)
+
+如果文件路径太长:
+![img](./assets/deep_file.png)
+
+
+你只希望打印文件名，不需要目录前缀，那么可以配置 `enableFileName: { enableDir: false }`:
+![img](./assets/only_file_name.png)
 
 ## 📄 协议
 

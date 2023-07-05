@@ -2,6 +2,18 @@ import { declare } from '@babel/helper-plugin-utils'
 import generater from '@babel/generator'
 import type { StringLiteral } from '@babel/types'
 import { stringLiteral } from '@babel/types'
+
+export type EnableFileName = boolean | {
+  /**
+   * @default true
+   * @example
+   * the file name path is src/index.ts
+   * if enableDir is true, the log will be src/index.ts
+   * if enableDir is false, the log will be index.ts
+   */
+  enableDir?: boolean
+}
+
 export interface Options {
   /**
    * tip of start argument default 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -19,6 +31,15 @@ export interface Options {
   splitBy?: string
   /** need endLine, default false */
   endLine?: boolean
+  /**
+   * to log filename, default false
+   */
+  enableFileName?: EnableFileName
+  /**
+   * @description the babel.config.js base path
+   * @default process.cwd()
+   *  */
+  root?: string
 }
 
 const DEFAULT_PRE_TIP = '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀'
@@ -32,13 +53,15 @@ function generateStrNode(str: string): StringLiteral & { skip: boolean } {
   return node
 }
 
-export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = '', endLine = false }) => {
+export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = '', endLine = false, enableFileName = true, root = process.cwd() }) => {
   const { types: t } = babel
   const splitNode = generateStrNode(splitBy)
+
+  const rootReg = new RegExp(`${root}\\/?`)
   return {
     name: 'enhance-log',
     visitor: {
-      CallExpression(path) {
+      CallExpression(path, { filename }) {
         const calleeCode = generater(path.node.callee).code
         if (calleeCode === 'console.log') {
           // add comment to skip if enter next time
@@ -77,13 +100,21 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = ''
           if (nodeArguments[nodeArguments.length - 1] === splitNode)
             nodeArguments.pop()
           const { loc } = path.node
+          let preTipStr = preTip
+          if (enableFileName && filename) {
+            let relativeFilename = filename.replace(rootReg, '')
+            if (typeof enableFileName === 'object' && !enableFileName.enableDir)
+              relativeFilename = relativeFilename.replace(/.*\//, '')
+
+            preTipStr += ` ~ ${relativeFilename}`
+          }
           if (loc) {
             const startLine = loc.start.line
-            const startLineTipNode = t.stringLiteral(`line of ${startLine} ${preTip}:\n`)
+            const startLineTipNode = t.stringLiteral(`line of ${startLine} ${preTipStr}:\n`)
             nodeArguments.unshift(startLineTipNode)
             if (endLine) {
               const endLine = loc.end.line
-              const endLineTipNode = t.stringLiteral(`\nline of ${endLine} ${preTip}:\n`)
+              const endLineTipNode = t.stringLiteral(`\nline of ${endLine} ${preTipStr}:\n`)
               nodeArguments.push(endLineTipNode)
             }
           }
