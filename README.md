@@ -98,6 +98,10 @@ module.exports = {
 
 ## 👇 Example
 
+> 📢 Note that since 0.4.0, if you print the filename, it puts the line where the log is after the filename, something like this:
+> ![img](./assets/file_with_line.png)
+
+
 For example, if you don't like small 🚀, but you like piggy 🐖, you can configure preTip as 🐖🐖🐖🐖🐖🐖🐖🐖🐖🐖:
 
 ![img](./assets/pig_pretip.png)
@@ -124,7 +128,7 @@ For another example, if there is a log that spans multiple lines, you want the n
 
 For example, if you want to know the file name where the log is located, you can configure enableFileName to be true (of course the default is true):
 
-![img](./assets/filename.png)
+![img](./assets/file_with_line.png)
 
 If the file path is too long:
 ![img](./assets/deep_file.png)
