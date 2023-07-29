@@ -32,7 +32,7 @@ export interface Options {
   /** need endLine, default false */
   endLine?: boolean
   /**
-   * to log filename, default false
+   * to log filename, default true
    */
   enableFileName?: EnableFileName
   /**
@@ -45,6 +45,22 @@ export interface Options {
 const DEFAULT_PRE_TIP = '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀'
 const SKIP_KEY = '@@babel-plugin-enhance-logSkip'
 
+const colorGreen = '\x1B[32m'
+const colorBlue = '\x1B[34m'
+const colorReset = '\x1B[0m'
+
+function handleStartFileNameTip(filePath: string, lineNumber: number) {
+  if (!filePath)
+    return ''
+  return ` ~ ${colorGreen}${filePath}:${colorBlue}${lineNumber}${colorReset}`
+}
+
+function handleEndFileNameTip(filePath: string, lineNumber: number) {
+  if (!filePath)
+    return ''
+  return ` ~ ${filePath}:${lineNumber}`
+}
+
 function generateStrNode(str: string): StringLiteral & { skip: boolean } {
   const node = stringLiteral(str)
   // @ts-ignore
@@ -53,11 +69,14 @@ function generateStrNode(str: string): StringLiteral & { skip: boolean } {
   return node
 }
 
-export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = '', endLine = false, enableFileName = true, root = process.cwd() }) => {
+export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = '', endLine: enableEndLine = false, enableFileName = true, root = process.cwd() }) => {
   const { types: t } = babel
   const splitNode = generateStrNode(splitBy)
 
-  const rootReg = new RegExp(`${root}\\/?`)
+  function generateLineOfTip(relativeFilename: string, lineNumber: number) {
+    return `${relativeFilename ? '' : `line of ${lineNumber} `}${preTip}`
+  }
+  const rootReg = new RegExp(`${root}`)
   return {
     name: 'enhance-log',
     visitor: {
@@ -100,21 +119,23 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = ''
           if (nodeArguments[nodeArguments.length - 1] === splitNode)
             nodeArguments.pop()
           const { loc } = path.node
-          let preTipStr = preTip
+          let relativeFilename = ''
+
           if (enableFileName && filename) {
-            let relativeFilename = filename.replace(rootReg, '')
+            relativeFilename = filename.replace(rootReg, '')
             if (typeof enableFileName === 'object' && !enableFileName.enableDir)
               relativeFilename = relativeFilename.replace(/.*\//, '')
-
-            preTipStr += ` ~ ${relativeFilename}`
           }
           if (loc) {
             const startLine = loc.start.line
-            const startLineTipNode = t.stringLiteral(`line of ${startLine} ${preTipStr}:\n`)
+
+            const startLineTipNode = t.stringLiteral(`${generateLineOfTip(relativeFilename, startLine)}${handleStartFileNameTip(relativeFilename, startLine)}\n`)
             nodeArguments.unshift(startLineTipNode)
-            if (endLine) {
+            if (enableEndLine) {
               const endLine = loc.end.line
-              const endLineTipNode = t.stringLiteral(`\nline of ${endLine} ${preTipStr}:\n`)
+              if (endLine === startLine)
+                return
+              const endLineTipNode = t.stringLiteral(`\n${generateLineOfTip(relativeFilename, endLine)}${handleEndFileNameTip(relativeFilename, endLine)}`)
               nodeArguments.push(endLineTipNode)
             }
           }

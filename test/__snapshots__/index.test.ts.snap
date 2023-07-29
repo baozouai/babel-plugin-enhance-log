@@ -8,7 +8,7 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e, \\"\\\\nline of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log  with endLine, splitBy 🐖 1`] = `
@@ -19,7 +19,7 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\\\uD83D\\\\uDC16\\", false, \\"\\\\uD83D\\\\uDC16\\", 2, \\"\\\\uD83D\\\\uDC16\\", null, \\"\\\\uD83D\\\\uDC16\\", undefined, \\"\\\\uD83D\\\\uDC16\\", \\"a =\\", a, \\"\\\\uD83D\\\\uDC16\\", \\"e.w.c =\\", e.w.c, \\"\\\\uD83D\\\\uDC16\\", \\"b =\\", b, \\"\\\\uD83D\\\\uDC16\\", \\"e =\\", e, \\"\\\\nline of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\") /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", '1', \\"\\\\uD83D\\\\uDC16\\", false, \\"\\\\uD83D\\\\uDC16\\", 2, \\"\\\\uD83D\\\\uDC16\\", null, \\"\\\\uD83D\\\\uDC16\\", undefined, \\"\\\\uD83D\\\\uDC16\\", \\"a =\\", a, \\"\\\\uD83D\\\\uDC16\\", \\"e.w.c =\\", e.w.c, \\"\\\\uD83D\\\\uDC16\\", \\"b =\\", b, \\"\\\\uD83D\\\\uDC16\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log  with splitBy 
@@ -31,7 +31,7 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", '1', \\"\\\\n\\", false, \\"\\\\n\\", 2, \\"\\\\n\\", null, \\"\\\\n\\", undefined, \\"\\\\n\\", \\"a =\\", a, \\"\\\\n\\", \\"e.w.c =\\", e.w.c, \\"\\\\n\\", \\"b =\\", b, \\"\\\\n\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log  with splitBy ; 1`] = `
@@ -42,7 +42,7 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\";\\", false, \\";\\", 2, \\";\\", null, \\";\\", undefined, \\";\\", \\"a =\\", a, \\";\\", \\"e.w.c =\\", e.w.c, \\";\\", \\"b =\\", b, \\";\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", '1', \\";\\", false, \\";\\", 2, \\";\\", null, \\";\\", undefined, \\";\\", \\"a =\\", a, \\";\\", \\"e.w.c =\\", e.w.c, \\";\\", \\"b =\\", b, \\";\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log 1`] = `
@@ -53,13 +53,13 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\", false, \\"\\", 2, \\"\\", null, \\"\\", undefined, \\"\\", \\"a =\\", a, \\"\\", \\"e.w.c =\\", e.w.c, \\"\\", \\"b =\\", b) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", '1', \\"\\", false, \\"\\", 2, \\"\\", null, \\"\\", undefined, \\"\\", \\"a =\\", a, \\"\\", \\"e.w.c =\\", e.w.c, \\"\\", \\"b =\\", b) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log default 1`] = `
 "const a = 1,
   b = true;
-console.log(\\"line of 3 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", \\"a =\\", a, \\"\\", \\"b =\\", b) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 3 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", \\"a =\\", a, \\"\\", \\"b =\\", b) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log width preTip 🐖🐖🐖🐖🐖🐖🐖🐖🐖 1`] = `
@@ -70,7 +70,7 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16:\\\\n\\", '1', \\"\\", false, \\"\\", 2, \\"\\", null, \\"\\", undefined, \\"\\", \\"a =\\", a, \\"\\", \\"e.w.c =\\", e.w.c, \\"\\", \\"b =\\", b, \\"\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\uD83D\\\\uDC16\\\\n\\", '1', \\"\\", false, \\"\\", 2, \\"\\", null, \\"\\", undefined, \\"\\", \\"a =\\", a, \\"\\", \\"e.w.c =\\", e.w.c, \\"\\", \\"b =\\", b, \\"\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;
 
 exports[`Transforms log with lineFeed 1`] = `
@@ -81,5 +81,5 @@ const e = {
     c: '123'
   }
 };
-console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80:\\\\n\\", '1', \\"\\", false, \\"\\", 2, \\"\\", null, \\"\\", undefined, \\"\\", \\"a =\\", a, \\"\\", \\"e.w.c =\\", e.w.c, \\"\\", \\"b =\\", b, \\"\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
+console.log(\\"line of 9 \\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\uD83D\\\\uDE80\\\\n\\", '1', \\"\\", false, \\"\\", 2, \\"\\", null, \\"\\", undefined, \\"\\", \\"a =\\", a, \\"\\", \\"e.w.c =\\", e.w.c, \\"\\", \\"b =\\", b, \\"\\", \\"e =\\", e) /*@@babel-plugin-enhance-logSkip*/;"
 `;

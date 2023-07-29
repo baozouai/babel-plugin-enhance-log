@@ -1,5 +1,4 @@
 import { expect, it } from 'vitest'
-import type { TransformOptions } from '@babel/core'
 import { transformSync } from '@babel/core'
 import plugin from '../src/babel-plugin-enhance-log'
 

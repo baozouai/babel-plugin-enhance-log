@@ -8,7 +8,8 @@ export default defineConfig({
     react({
       babel: {
         plugins: [['enhance-log', {
-          splitby: '\n',
+          splitBy: '\n',
+
         }]],
       },
     }),
