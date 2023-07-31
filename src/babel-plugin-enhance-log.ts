@@ -76,7 +76,7 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = ''
   function generateLineOfTip(relativeFilename: string, lineNumber: number) {
     return `${relativeFilename ? '' : `line of ${lineNumber} `}${preTip}`
   }
-  const rootReg = new RegExp(`${root}`)
+  const rootReg = new RegExp(`${root}\\/?`)
   return {
     name: 'enhance-log',
     visitor: {
