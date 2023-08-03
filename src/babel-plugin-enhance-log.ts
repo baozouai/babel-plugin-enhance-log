@@ -45,17 +45,17 @@ export interface Options {
 const DEFAULT_PRE_TIP = '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀'
 const SKIP_KEY = '@@babel-plugin-enhance-logSkip'
 
-const colorGreen = '\x1B[32m'
-const colorBlue = '\x1B[34m'
-const colorReset = '\x1B[0m'
+// const colorGreen = '\x1B[32m'
+// const colorBlue = '\x1B[34m'
+// const colorReset = '\x1B[0m'
 
-function handleStartFileNameTip(filePath: string, lineNumber: number) {
-  if (!filePath)
-    return ''
-  return ` ~ ${colorGreen}${filePath}:${colorBlue}${lineNumber}${colorReset}`
-}
+// function handleStartFileNameTip(filePath: string, lineNumber: number) {
+//   if (!filePath)
+//     return ''
+//   return ` ~ ${colorGreen}${filePath}:${colorBlue}${lineNumber}${colorReset}`
+// }
 
-function handleEndFileNameTip(filePath: string, lineNumber: number) {
+function handleFileNameTip(filePath: string, lineNumber: number) {
   if (!filePath)
     return ''
   return ` ~ ${filePath}:${lineNumber}`
@@ -129,13 +129,13 @@ export default declare<Options>((babel, { preTip = DEFAULT_PRE_TIP, splitBy = ''
           if (loc) {
             const startLine = loc.start.line
 
-            const startLineTipNode = t.stringLiteral(`${generateLineOfTip(relativeFilename, startLine)}${handleStartFileNameTip(relativeFilename, startLine)}\n`)
+            const startLineTipNode = t.stringLiteral(`${generateLineOfTip(relativeFilename, startLine)}${handleFileNameTip(relativeFilename, startLine)}\n`)
             nodeArguments.unshift(startLineTipNode)
             if (enableEndLine) {
               const endLine = loc.end.line
               if (endLine === startLine)
                 return
-              const endLineTipNode = t.stringLiteral(`\n${generateLineOfTip(relativeFilename, endLine)}${handleEndFileNameTip(relativeFilename, endLine)}`)
+              const endLineTipNode = t.stringLiteral(`\n${generateLineOfTip(relativeFilename, endLine)}${handleFileNameTip(relativeFilename, endLine)}`)
               nodeArguments.push(endLineTipNode)
             }
           }
